@@ -1,0 +1,54 @@
+nav{
+    padding: 1em;
+    border-style: solid;
+    border-width: 0.15em;
+    border-color: rgb(32, 31, 31);
+    border-radius: 1em;font-family:'Concert One', cursive;
+}
+nav a{
+    padding-left: 5em;
+    color:rgb(2, 51, 54);  
+    font-family:'Montserrat',san-seriff;
+}
+.row{
+    display: flex;
+    background-image: url( https://i.pinimg.com/564x/c5/81/8a/c5818a2b24c17bbb90be29c78508b5d8.jpg);
+}
+.left-column{
+    height: 40vh;
+    flex:40%;
+}
+.right-column{
+     height: 40vh; 
+     flex:60%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#right-col-home{
+    background-image: url(file:///C:/Users/gouri/Desktop/Webdev/codeclub/891.webp);
+}
+#right-col-about{
+    background-image: url(https://pluspng.com/img-png/kids-having-fun-at-school-png--720.png);
+}
+#right-col-members {
+    background-image: url(https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/61339/selfie-vector-clipart-md.png);
+}
+.main-heading{
+font-family: 'Concert One',cursive;
+font-size: 4em;
+color: rgb(246, 236, 231);
+padding-top: 1em;
+}
+#content-area{
+    font-family: 'Montserrat', sans-serif; 
+    margin-top: 6em;
+}
+#layout-container{
+          width:80%;
+          margin-left:  auto;
+          margin-right: auto;
+          }
+#password-area{
+    margin-top:5em;
+}
