@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"][disabled],
+        input[type="number"][disabled],
+        input[type="date"][disabled] {
+            background-color: #f4f4f4;
+            cursor: not-allowed;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .edit-btn {
+            display: none;
+        }
+
+        /* Tab styles */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+
+        .tabcontent.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Patient Information</h2>
+        <!-- Tabs -->
+        <div class="tab">
+            <button class="tablinks" onclick="openTab('home')">Home</button>
+            <button class="tablinks" onclick="openAlerts()">Alerts</button>
+            <button class="tablinks" onclick="openTab('insurance')">Insurance Details</button>
+            <button class="tablinks" onclick="openTab('reports')">Test Reports</button>
+        </div>
+
+        <!-- Tab content -->
+        <div id="home" class="tabcontent active">
+            <!-- Content for Home tab -->
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" value="John Doe" readonly>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="text" id="age" value="30" readonly>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" value="Male" readonly>
+            </div>
+            
+            <!-- Table -->
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>Sno</th>
+                        <th>Hospital Name</th>
+                        <th>Doctor Name</th>
+                        <th>Medical Reports</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows can be added dynamically if needed -->
+                    <tr>
+                        <td>1</td>
+                        <td><input type='text' placeholder='Hospital Name' disabled value="Hospital A"></td>
+                        <td><input type='text' placeholder='Doctor Name' disabled value="Dr. Smith"></td>
+                        <td><input type='text' placeholder='Medical Reports' disabled value="Report 1"></td>
+                        <td><input type='date' disabled value="2024-02-25"></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><input type='text' placeholder='Hospital Name' disabled value="Hospital B"></td>
+                        <td><input type='text' placeholder='Doctor Name' disabled value="Dr. Johnson"></td>
+                        <td><input type='text' placeholder='Medical Reports' disabled value="Report 2"></td>
+                        <td><input type='date' disabled value="2024-02-24"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Other tab contents -->
+        <div id="alerts" class="tabcontent">
+            <!-- Content for Alerts tab -->
+            <!-- Redirect to another webpage -->
+        </div>
+
+        <div id="insurance" class="tabcontent">
+            <!-- Content for Insurance Details tab -->
+            <!-- You can add insurance details input fields here -->
+        </div>
+
+        <div id="reports" class="tabcontent">
+            <!-- Content for Test Reports tab -->
+            <!-- Redirect to another webpage -->
+        </div>
+    </div>
+
+    <script>
+        function openTab(tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+
+            // Redirect to another webpage if the Test Reports or Insurance Details tab is clicked
+            if (tabName === 'reports') {
+                window.location.href = "TestResults.html"; // Change the URL to your test reports page
+            } else if (tabName === 'insurance') {
+                window.location.href = "insurance_details.html"; // Change the URL to your insurance details page
+            }
+        }
+
+        function openAlerts() {
+            window.location.href = "alert.html"; // Change the URL to your alerts page
+        }
+
+        // Open the Home tab by default
+        openTab('home');
+    </script>
+</body>
+</html>
