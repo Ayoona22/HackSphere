@@ -73,7 +73,7 @@
 <body>
     <div class="container">
         <h2>Sign Up</h2>
-        <form action="#">
+        <form id="signupForm" action="#">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -117,6 +117,22 @@
             var doctorInfo = document.querySelector(".doctor-info");
             doctorInfo.style.display = doctorCheckbox.checked ? "block" : "none";
         }
+
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            var doctorCheckbox = document.getElementById("doctor");
+            
+            // If the "Are you a doctor?" box is not checked
+            if (!doctorCheckbox.checked) {
+                // Prevent the form from submitting
+                event.preventDefault();
+                
+                // Redirect the user to the desired webpage
+                window.location.href = "patient_portal.html"; // Replace "https://example.com" with your desired URL
+            }else{
+                event.preventDefault();
+                window.location.href = "doctor_portal.html";
+            }
+        });
     </script>
 </body>
 </html>
